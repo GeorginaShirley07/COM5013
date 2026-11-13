@@ -12,11 +12,16 @@ class Library:
             print("No books available.")
             return        
         for book in self.books.values():
-            print(book.title)
+            status = "Available" if book.available else "Not Available"
+            print(f"{book.title} - {book.author} ({book.year}) - {status}")
 
     def search_book(self, isbn):
         #Finds books from their ISBN number
-        return self.books.get(isbn, None)
+        found_book = self.books.get(isbn)
+        if found_book:
+            print(f"\nBook found: {found_book.title} by {found_book.author}") 
+        else:
+            print("\nBook not found.")
 
     def borrow_book(self, isbn):
         #Allows a user to borrow a book if it is available
