@@ -43,3 +43,18 @@ class Library:
         elif book and book.available:
             print("This book was not borrowed.")
         return book
+
+    def reserve_book(self, isbn, student_name):
+        #allows a user to reserve a book if currently unavailable.
+        book = self.search_book(isbn)
+        if book and not book.available:
+            book.waiting_list.append(student_name)
+            print(f"{student_name} has reserved {book.title} and is added to the waiting list.")
+        return book
+
+    def view_waiting_list(self, isbn):
+        #allows veiwing of the waiting list for a specific book.
+        book = self.search_book(isbn)
+        if book and not book.available:
+            print(f"Waiting list for {book.title}: \n{list(book.waiting_list)}")
+        return book
