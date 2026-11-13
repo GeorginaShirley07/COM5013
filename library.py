@@ -40,5 +40,6 @@ class Library:
         if book and not book.available:
             book.available = True
             print("You have returned the book:", book.title)
-        else:
-            print("This book was not borrowed or does not exist in the library.")
+        elif book and book.available:
+            print("This book was not borrowed.")
+        return book
