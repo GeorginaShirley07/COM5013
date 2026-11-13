@@ -22,6 +22,7 @@ class Library:
             print(f"\nBook found: {found_book.title} by {found_book.author}") 
         else:
             print("\nBook not found.")
+        return found_book
 
     def borrow_book(self, isbn):
         #Allows a user to borrow a book if it is available
@@ -31,6 +32,7 @@ class Library:
             print("You have borrowed the book:", book.title)
         else:
             print("Book is not available for borrowing.")
+        return book
 
     def return_book(self, isbn):
         #User can return a borrowed book, making it available again.
