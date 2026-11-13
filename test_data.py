@@ -20,4 +20,5 @@ sample_books = [
     Book("017", "Big Data Analytics", "David Lee", 2020),
     Book("018", "Data Science Principles", "Emily Brown", 2021),
     Book("019", "Blockchain Technology", "Michael Carter", 2022),
-    Book("020", "Human Computer Interaction", "Alan Dix", 2019) ]
+    Book("020", "Human Computer Interaction", "Alan Dix", 2019) 
+    ]
