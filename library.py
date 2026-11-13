@@ -1,5 +1,5 @@
 class Library:
-    # Stores all books using a dictionary with ISBN as the key (O(1) average case)
+    # Stores all books using a dictionary with ISBN as the key (O(1) average lookup)
     def __init__(self):
         #Dictionary acts as a hash table for book storage
         self.books = {}
