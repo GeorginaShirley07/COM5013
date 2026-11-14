@@ -15,7 +15,7 @@ def merge(left, right):
     result = []
     #compares the first elements of each list and adds the smaller author (alphabetically)
     while left and right:
-        if left[0].author < right[0].author:
+        if left[0].title < right[0].title:
             result.append(left.pop(0))
         else:
             result.append(right.pop(0))

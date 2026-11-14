@@ -1,11 +1,11 @@
 from book import Book
 from library import Library
 from test_data import sample_books
-
+print("RUNNING NEW  ")
 library = Library()
 for book in sample_books:
     library.add_book(book)
-
+choice = 0
 while True:
     print("\nLibrary Menu:")
     print("1. Display all books")
@@ -17,33 +17,33 @@ while True:
     print("7. View waiting list for a book")
     print("8. Sort books by title")
     print("9. Exit")
-    choice = input("Enter your choice (1-9): ")
-
+    choice = input("Enter your choice (1-9):")
+  
     match choice:
-        case 1:
+        case "1":
             library.display_books()
-        case 2:
+        case "2":
             isbn = input("Enter ISBN to search: ")
             library.search_book(isbn)
-        case 3:
+        case "3":
             title = input("Enter title to search: ")
             library.search_book_title(title)
-        case 4:
+        case "4":
             isbn = input("Enter ISBN to borrow: ")
             library.borrow_book(isbn)
-        case 5:
+        case "5":
             isbn = input("Enter ISBN to return: ")
             library.return_book(isbn)
-        case 6:
+        case "6":
             isbn = input("Enter ISBN to reserve: ")
             student_name = input("Enter your name: ")
             library.reserve_book(isbn, student_name)
-        case 7:
+        case "7":
             isbn = input("Enter ISBN to view waiting list: ")
             library.view_waiting_list(isbn)
-        case 8:
+        case "8":
             library.sort_books_by_title()
-        case 9:
+        case "9":
             print("Exiting the library system.")
             break
         case _:

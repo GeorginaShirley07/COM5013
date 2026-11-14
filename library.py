@@ -1,5 +1,5 @@
 from sorting import merge_sort
-from searching import binary_search
+from datetime import datetime, timedelta
 
 class Library:
     #Stores all books using a dictionary with ISBN as the key (O(1) average lookup)
@@ -23,9 +23,7 @@ class Library:
         #avg time complexity O(1)
         #Hash table search is used since the books are stored in a dictionary. 
         found_book = self.books.get(isbn)
-        if found_book:
-            print(f"\nBook found: {found_book.title} by {found_book.author}") 
-        else:
+        if not found_book:
             print("\nBook not found.")
         return found_book
 
@@ -41,7 +39,7 @@ class Library:
             print("\nBooks found:")
             for book in results:
                 status = "Available" if book.available else "Not Available"
-                print(f"{book.isbn}: {book.title} - {book.author} ({book.year}) - {status}")
+                #print(f"{book.isbn}: {book.title} - {book.author} ({book.year}) - {status}")
         else:
             print("\nNo books found with that title.")
 
@@ -50,7 +48,9 @@ class Library:
         book = self.search_book(isbn)
         if book and book.available:
             book.available = False
+            book.due_date = datetime.now() + timedelta(days=14)
             print("You have borrowed the book:", book.title)
+            print(f"Due Date: {book.due_date.strftime('%d/%m/%Y')}")
         else:
             print("Book is not available for borrowing.")
         return book
@@ -65,7 +65,8 @@ class Library:
             #check if there is a waiting list.
             if book.waiting_list:
                 next_student = book.waiting_list.popleft()
-                print(f"{next_student} has automatically been assigned {book.title}")
+                book.due_date = datetime.now() + timedelta(days=14)
+                print(f"{next_student} has automatically been assigned {book.title} with a due date of {book.due_date.strftime('%d/%m/%Y')}")
                 book.available = False  # The book is now borrowed by the next student
         elif book and book.available:
             print("This book was not borrowed.")
@@ -76,6 +77,8 @@ class Library:
         if book and not book.available:
             book.waiting_list.append(student_name)
             print(f"{student_name} has reserved {book.title} and is added to the waiting list.")
+        elif book and book.available:
+            self.borrow_book(isbn)
         return book
 
     def view_waiting_list(self, isbn):
