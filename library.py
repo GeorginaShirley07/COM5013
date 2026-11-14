@@ -24,6 +24,20 @@ class Library:
             print("\nBook not found.")
         return found_book
 
+    def search_book_title(self, title_search):
+        #Finds books from their title and adds them to a list to print
+        results = []
+        for book in self.books.values():
+            if title_search.lower() in book.title.lower():
+                results.append(book)
+        if results:
+            print("\nBooks found:")
+            for book in results:
+                status = "Available" if book.available else "Not Available"
+                print(f"{book.isbn}: {book.title} - {book.author} ({book.year}) - {status}")
+        else:
+            print("\nNo books found with that title.")
+
     def borrow_book(self, isbn):
         #Allows a user to borrow a book if it is available
         book = self.search_book(isbn)
