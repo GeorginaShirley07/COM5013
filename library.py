@@ -1,6 +1,8 @@
 from sorting import merge_sort
+from searching import binary_search
+
 class Library:
-    # Stores all books using a dictionary with ISBN as the key (O(1) average lookup)
+    #Stores all books using a dictionary with ISBN as the key (O(1) average lookup)
     def __init__(self):
         #Dictionary acts as a hash table for book storage
         self.books = {}
@@ -18,6 +20,8 @@ class Library:
 
     def search_book(self, isbn):
         #Finds books from their ISBN number
+        #avg time complexity O(1)
+        #Hash table search is used since the books are stored in a dictionary. 
         found_book = self.books.get(isbn)
         if found_book:
             print(f"\nBook found: {found_book.title} by {found_book.author}") 
@@ -27,6 +31,8 @@ class Library:
 
     def search_book_title(self, title_search):
         #Finds books from their title and adds them to a list to print
+        #linear search used to check each book in the library for a match.
+        #avg time complexity O(n)
         results = []
         for book in self.books.values():
             if title_search.lower() in book.title.lower():
@@ -83,7 +89,7 @@ class Library:
         #sorts the books using the merge sort from sorting.py
         book_list = list(self.books.values())
         result = merge_sort(book_list)
-        print("\nBooks sorted by title:")
+        print("\nBooks sorted by author:")
         for book in result:
             status = "Available" if book.available else "Not Available"
             print(f"{book.isbn} - {book.title} - {book.author} ({book.year}) - {status}")

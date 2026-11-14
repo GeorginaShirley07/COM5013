@@ -13,9 +13,9 @@ def merge_sort(books):
 def merge(left, right):
    # combines the two sorted lists into a single list
     result = []
-    #compares the first elements of each list and adds the smaller title (alphabetically)
+    #compares the first elements of each list and adds the smaller author (alphabetically)
     while left and right:
-        if left[0].title < right[0].title:
+        if left[0].author < right[0].author:
             result.append(left.pop(0))
         else:
             result.append(right.pop(0))
