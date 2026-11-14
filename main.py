@@ -15,8 +15,9 @@ while True:
     print("5. Return a book")
     print("6. Reserve a book")
     print("7. View waiting list for a book")
-    print("8. Exit")
-    choice = int(input("Enter your choice (1-8): "))
+    print("8. Sort books by title")
+    print("9. Exit")
+    choice = input("Enter your choice (1-9): ")
 
     match choice:
         case 1:
@@ -41,6 +42,8 @@ while True:
             isbn = input("Enter ISBN to view waiting list: ")
             library.view_waiting_list(isbn)
         case 8:
+            library.sort_books_by_title()
+        case 9:
             print("Exiting the library system.")
             break
         case _:

@@ -1,3 +1,4 @@
+from sorting import merge_sort
 class Library:
     # Stores all books using a dictionary with ISBN as the key (O(1) average lookup)
     def __init__(self):
@@ -77,3 +78,13 @@ class Library:
         if book and not book.available:
             print(f"Waiting list for {book.title}: \n{list(book.waiting_list)}")
         return book
+
+    def sort_books_by_title(self):
+        #sorts the books using the merge sort from sorting.py
+        book_list = list(self.books.values())
+        result = merge_sort(book_list)
+        print("\nBooks sorted by title:")
+        for book in result:
+            status = "Available" if book.available else "Not Available"
+            print(f"{book.isbn} - {book.title} - {book.author} ({book.year}) - {status}")
+        return result
