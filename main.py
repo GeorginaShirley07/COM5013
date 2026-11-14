@@ -45,13 +45,3 @@ while True:
             break
         case _:
             print("Invalid choice. Please try again.")
-
-
-
-library.borrow_book("001")
-
-library.reserve_book("001", "izzy")
-library.reserve_book("001", "georgina")
-
-library.return_book("001")
-library.view_waiting_list("001")
