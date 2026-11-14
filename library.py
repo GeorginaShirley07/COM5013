@@ -40,9 +40,14 @@ class Library:
         if book and not book.available:
             book.available = True
             print("You have returned the book:", book.title)
+            print(f"Waiting list for {book.title}: {list(book.waiting_list)}")
+            #check if there is a waiting list.
+            if book.waiting_list:
+                next_student = book.waiting_list.popleft()
+                print(f"{next_student} has automatically been assigned {book.title}")
+                book.available = False  # The book is now borrowed by the next student
         elif book and book.available:
             print("This book was not borrowed.")
-        return book
 
     def reserve_book(self, isbn, student_name):
         #allows a user to reserve a book if currently unavailable.
