@@ -19,6 +19,6 @@ def merge(left, right):
             sorted_books.append(left.pop(0))
         else:
             sorted_books.append(right.pop(0))
-    #adds any remaining books
+    #adds any remaining books in alphabetical order
     sorted_books.extend(left or right)
     return sorted_books
