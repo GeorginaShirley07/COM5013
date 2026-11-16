@@ -8,8 +8,23 @@ class Library:
         self.books = {}
 
     def add_book(self, book):
+        #adds a book to the library, validating the isbn beforehand
+        if not book.isbn:
+            print("ISBN cannot be empty.")
+            return False
+        
+        if book.isbn in self.books:
+            print("A book with that ISBN already exists")
+            return False
+        
+        if len(book.isbn) != 10:
+            print("That is not a valid ISBN")
+            return False
+        
         self.books[book.isbn] = book
-    
+        print(f"{book.title} added succesfully")
+        return True
+
     def display_books(self):
         if not self.books:
             print("No books available.")

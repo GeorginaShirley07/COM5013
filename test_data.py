@@ -10,7 +10,7 @@ def load_books():
 
         #processes each row in file
         for row in reader:
-            book.append(Book(
+            books.append(Book(
                 row["isbn"],
                 row["title"],
                 row["authors"],
