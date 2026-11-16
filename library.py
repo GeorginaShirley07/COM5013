@@ -8,7 +8,10 @@ class Library:
         self.books = {}
         self.sorted_books = []
 
-    def add_book(self, book):
+    def add_book(self,book):
+        self.books[book.isbn] = book
+
+    def add_new_book(self, book):
         #adds a book to the library, validating the isbn beforehand
         if not book.isbn:
             print("ISBN cannot be empty.")
@@ -26,6 +29,16 @@ class Library:
         self.insert_sorted(book)
         print(f"{book.title} added succesfully")
         return True
+
+    def insert_sorted(self, new_book):
+        #inserts the new book into the correct place in the library
+        self.sorted_books.append(new_book)
+
+        i = len(self.sorted_books) - 2
+        while(i >= 0 and self.sorted_books[i].title.lower() > new_book.title.lower()):
+            self.sorted_books[i + 1] = self.sorted_books[i]
+            i -= 1
+        self.sorted_books[i + 1] = new_book
 
     def display_books(self):
         if not self.books:
@@ -56,7 +69,7 @@ class Library:
             print("\nBooks found:")
             for book in searched_books:
                 status = "Available" if book.available else "Not Available"
-                #print(f"{book.isbn}: {book.title} - {book.author} ({book.year}) - {status}")
+                print(f"{book.isbn}: {book.title} - {book.author} ({book.year}) - {status}")
         else:
             print("\nNo books found with that title.")
 

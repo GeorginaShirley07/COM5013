@@ -54,14 +54,14 @@ while True:
 
         case "9":
             while True:
-                #.strip() takes away any spaces in the input.
+                #.strip() takes away any spaces in the input
                 isbn = input("Enter ISBN:").strip()
                 title = input("Enter title:").strip()
                 authors = input("Enter authors:").strip()
                 publication_date = int(input("Enter publication year:"))
 
                 new_book = Book(isbn,title,authors,publication_date)
-                if library.add_book(new_book):
+                if library.add_new_book(new_book):
                     break
 
         case "10":
