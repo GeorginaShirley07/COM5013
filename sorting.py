@@ -22,3 +22,13 @@ def merge(left, right):
     #adds any remaining books in alphabetical order
     sorted_books.extend(left or right)
     return sorted_books
+
+def insert_sorted(self, new_book):
+    #inserts the new book into the correct place in the library
+    self.sorted_books.append(new_book)
+
+    i = len(self.sorted_books) - 2
+    while(i >= 0 and self.sorted_books[i].title.lower() > new_book.title.lower()):
+        self.sorted_books[i + 1] = self.sorted_books[i]
+        i -= 1
+    self.sorted_books[i + 1] = new_book

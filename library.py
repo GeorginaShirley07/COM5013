@@ -6,6 +6,7 @@ class Library:
     def __init__(self):
         #Dictionary acts as a hash table for book storage
         self.books = {}
+        self.sorted_books = []
 
     def add_book(self, book):
         #adds a book to the library, validating the isbn beforehand
@@ -14,14 +15,15 @@ class Library:
             return False
         
         if book.isbn in self.books:
-            print("A book with that ISBN already exists")
+            print("A book with that ISBN already exists.")
             return False
         
         if len(book.isbn) != 10:
-            print("That is not a valid ISBN")
+            print("ISBN has to be 10 digits.")
             return False
         
         self.books[book.isbn] = book
+        self.insert_sorted(book)
         print(f"{book.title} added succesfully")
         return True
 

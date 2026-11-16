@@ -54,6 +54,7 @@ while True:
 
         case "9":
             while True:
+                #.strip() takes away any spaces in the input.
                 isbn = input("Enter ISBN:").strip()
                 title = input("Enter title:").strip()
                 authors = input("Enter authors:").strip()
