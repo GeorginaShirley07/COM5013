@@ -31,13 +31,13 @@ class Library:
         #Finds books from their title and adds them to a list to print
         #linear search used to check each book in the library for a match.
         #avg time complexity O(n)
-        results = []
+        searched_books = []
         for book in self.books.values():
             if title_search.lower() in book.title.lower():
-                results.append(book)
-        if results:
+                searched_books.append(book)
+        if searched_books:
             print("\nBooks found:")
-            for book in results:
+            for book in searched_books:
                 status = "Available" if book.available else "Not Available"
                 #print(f"{book.isbn}: {book.title} - {book.author} ({book.year}) - {status}")
         else:
@@ -91,9 +91,9 @@ class Library:
     def sort_books_by_title(self):
         #sorts the books using the merge sort from sorting.py
         book_list = list(self.books.values())
-        result = merge_sort(book_list)
+        searched_books = merge_sort(book_list)
         print("\nBooks sorted by author:")
-        for book in result:
+        for book in searched_books:
             status = "Available" if book.available else "Not Available"
             print(f"{book.isbn} - {book.title} - {book.author} ({book.year}) - {status}")
-        return result
+        return searched_books
