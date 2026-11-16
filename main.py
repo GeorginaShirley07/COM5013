@@ -1,9 +1,9 @@
 from book import Book
 from library import Library
-from test_data import sample_books
+from test_data import load_books
 
 library = Library()
-for book in sample_books:
+for book in load_books():
     library.add_book(book)
 
 while True:
