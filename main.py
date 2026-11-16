@@ -1,11 +1,11 @@
 from book import Book
 from library import Library
 from test_data import sample_books
-print("RUNNING NEW  ")
+
 library = Library()
 for book in sample_books:
     library.add_book(book)
-choice = 0
+
 while True:
     print("\nLibrary Menu:")
     print("1. Display all books")
