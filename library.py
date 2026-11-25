@@ -54,7 +54,10 @@ class Library:
         #avg time complexity O(1)
         #Hash table search is used since the books are stored in a dictionary. 
         found_book = self.books.get(isbn)
-        if not found_book:
+        if found_book:
+            status = "available" if found_book.available else "not Available"
+            print(f"{found_book.isbn} - {found_book.title} - {found_book.author} - {found_book.year} - {status}")
+        else:
             print("\nBook not found.")
         return found_book
 
