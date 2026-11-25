@@ -66,14 +66,15 @@ class Library:
         #linear search used to check each book in the library for a match.
         #avg time complexity O(n)
         searched_books = []
-        for book in self.books.values():
-            if title_search.lower() in book.title.lower():
-                searched_books.append(book)
-        if searched_books:
-            print("\nBooks found:")
-            for book in searched_books:
-                status = "Available" if book.available else "Not Available"
-                print(f"{book.isbn}: {book.title} - {book.author} ({book.year}) - {status}")
+        if title_search != "":
+            for book in self.books.values():
+                if title_search.lower() in book.title.lower():
+                    searched_books.append(book)
+            if searched_books:
+                print(f"\n{len(searched_books)} books found:")
+                for book in searched_books:
+                    status = "Available" if book.available else "Not Available"
+                    print(f"{book.isbn}: {book.title} - {book.author} ({book.year}) - {status}")
         else:
             print("\nNo books found with that title.")
 
@@ -130,4 +131,5 @@ class Library:
         for book in searched_books:
             status = "Available" if book.available else "Not Available"
             print(f"{book.isbn} - {book.title} - {book.author} ({book.year}) - {status}")
+        print("Books sorted alphabetically")
         return searched_books
