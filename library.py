@@ -47,6 +47,7 @@ class Library:
         for book in self.books.values():
             status = "Available" if book.available else "Not Available"
             print(f"{book.isbn} - {book.title} - {book.author} ({book.year}) - {status}")
+        print(f"Loaded {len(self.books)} books")
 
     def search_book(self, isbn):
         #Finds books from their ISBN number
