@@ -56,7 +56,7 @@ class Library:
         found_book = self.books.get(isbn)
         if found_book:
             status = "available" if found_book.available else "not Available"
-            print(f"{found_book.isbn} - {found_book.title} - {found_book.author} - {found_book.year} - {status}")
+            print(f"\n{found_book.isbn} - {found_book.title} - {found_book.author} - {found_book.year} - {status}")
         else:
             print("\nBook not found.")
         return found_book
