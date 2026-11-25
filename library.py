@@ -121,6 +121,8 @@ class Library:
         book = self.search_book(isbn)
         if book and not book.available:
             print(f"Waiting list for {book.title}: \n{list(book.waiting_list)}")
+        else:
+            print("The waiting list is empty")
         return book
 
     def sort_books_by_title(self):
